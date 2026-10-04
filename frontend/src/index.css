@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Colour tokens — RGB channels so Tailwind opacity modifiers work. */
+  :root {
+    --paper: 238 241 240;   /* #EEF1F0 pale lichen grey */
+    --surface: 248 250 249; /* #F8FAF9 */
+    --ink: 20 32 43;        /* #14202B deep slate */
+    --muted: 82 96 106;     /* #52606A */
+    --line: 201 209 209;    /* #C9D1D1 */
+    --accent: 43 86 196;    /* #2B56C4 cobalt */
+    --signal: 12 128 116;   /* #0C8074 lake teal */
+    --danger: 185 50 50;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      --paper: 14 24 31;
+      --surface: 20 32 41;
+      --ink: 228 234 236;
+      --muted: 150 165 174;
+      --line: 42 56 66;
+      --accent: 132 164 255;
+      --signal: 72 196 178;
+      --danger: 240 120 120;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme='dark'] {
+    --paper: 14 24 31;
+    --surface: 20 32 41;
+    --ink: 228 234 236;
+    --muted: 150 165 174;
+    --line: 42 56 66;
+    --accent: 132 164 255;
+    --signal: 72 196 178;
+    --danger: 240 120 120;
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    @apply scroll-smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    @apply font-display text-ink;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    @apply bg-accent text-surface;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-accent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-5xl mx-auto px-4 sm:px-6;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold mb-3;
+  }
+
+  .section-subtitle {
+    @apply text-muted text-lg mb-10 max-w-prose;
+  }
+
+  .card {
+    @apply bg-surface border border-line rounded-lg p-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-ink text-paper font-medium rounded-md
+           transition-colors hover:bg-accent;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 border border-ink/25 text-ink font-medium
+           rounded-md transition-colors hover:border-accent hover:text-accent;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 text-sm rounded border border-line text-muted bg-paper;
+  }
+
+  .input-field {
+    @apply w-full bg-surface border border-line rounded-md px-4 py-2.5 text-ink placeholder-muted/70
+           focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent;
+  }
+
+  .link {
+    @apply text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent;
+  }
+
+  .nav-link {
+    @apply text-muted hover:text-ink transition-colors text-[0.95rem];
+  }
+
+  .nav-link-active {
+    @apply text-ink font-medium;
+  }
+}
+
+pre {
+  @apply bg-surface border border-line rounded-md p-4 overflow-x-auto text-sm;
+}
