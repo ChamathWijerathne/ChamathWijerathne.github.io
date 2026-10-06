@@ -22,6 +22,7 @@ app.use(
   cors({
     origin: [
       ...(process.env.FRONTEND_URL ?? 'http://localhost:3000').split(',').map((s) => s.trim()),
+      'https://chamath.is-a.dev',
       'https://chamathwijerathne.github.io',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

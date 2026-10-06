@@ -2,7 +2,7 @@
 
 Personal portfolio of Chamath Wijerathne: software engineer (12+ years), MSc Data-Centric Engineering at LUT University, Espoo, Finland.
 
-Live site: https://chamathwijerathne.github.io
+Live site: https://chamath.is-a.dev
 
 ## Stack
 

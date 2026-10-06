@@ -13,7 +13,7 @@ services:
       - key: ADMIN_PASSWORD
         sync: false          # set in Render dashboard
       - key: FRONTEND_URL
-        value: https://chamathwijerathne.github.io
+        value: https://chamath.is-a.dev
       - key: NODE_ENV
         value: production
     autoDeploy: true
